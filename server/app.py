@@ -79,7 +79,7 @@ def add_heropower():
     data = request.get_json()
 
     try:
-        # Extract and validate fields
+        
         strength = data.get('strength')
         power_id = data.get('power_id')
         hero_id = data.get('hero_id')
@@ -87,7 +87,7 @@ def add_heropower():
         if not all([strength, power_id, hero_id]):
             raise ValueError("All fields: strength, power_id, and hero_id are required.")
 
-        # Create new HeroPower (strength validation handled by model)
+        
         new_hero_power = HeroPower(
             strength=strength,
             power_id=power_id,
@@ -96,7 +96,7 @@ def add_heropower():
         db.session.add(new_hero_power)
         db.session.commit()
 
-        # Prepare detailed response with hero and power data
+        
         response_data = {
             "id": new_hero_power.id,
             "hero_id": new_hero_power.hero_id,
@@ -125,24 +125,7 @@ def add_heropower():
 
 
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 if __name__=='__main__':
     app.run(port=5555, debug=True)
 
