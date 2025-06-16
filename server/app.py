@@ -11,6 +11,9 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
 migrate=Migrate(app,db)
 db.init_app(app)
 
+@app.route('/')
+def index():
+    return '<h1>The super heroes</>'
 
 #get heroes
 @app.route('/heroes' , methods = ['GET'])
@@ -125,7 +128,7 @@ def add_heropower():
 
 
     
-    
+
 if __name__=='__main__':
     app.run(port=5555, debug=True)
 
